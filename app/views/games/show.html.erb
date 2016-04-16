@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @game.title %>
+</p>
+
+<p>
+  <strong>Release year:</strong>
+  <%= @game.release_year %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @game.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @game.description %>
+</p>
+
+<p>
+  <strong>Coverart url:</strong>
+  <%= @game.coverart_url %>
+</p>
+
+<%if signed_in?%>
+  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@game), removeUrl: remove_from_cart_path(@game)} do%>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+  <%end%>
+<%end%>
+
+<%= link_to 'Back', games_path %>
+
